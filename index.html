@@ -1,0 +1,410 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Sparta AI - AI chatbots for WhatsApp, Instagram & websites. Automate sales & customer support in Kenya.">
+  <title>Sparta AI - AI Chatbots for Sales</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #111, #000);
+      color: white;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    .center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 20px 50px;
+    }
+
+    h1 a {
+      background: linear-gradient(to right, #22c55e, #15803d);
+      -webkit-background-clip: text;
+      color: transparent;
+      text-decoration: none;
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    p {
+      color: #ccc;
+      max-width: 600px;
+      font-size: 1.2rem;
+    }
+
+    .cta-button {
+      background: linear-gradient(to right, #22c55e, #15803d);
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-weight: bold;
+      margin-top: 30px;
+      border: none;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+      font-size: 1.1rem;
+    }
+    .cta-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(34, 197, 94, 0.3);
+    }
+
+    .package-grid {
+      display: grid;
+      gap: 25px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      max-width: 1000px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    .card {
+      background: #1f1f1f;
+      padding: 25px;
+      border-radius: 20px;
+      border: 1px solid #333;
+      box-shadow: 0 0 15px rgba(0,255,0,0.05);
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(0,255,0,0.2);
+    }
+
+    .card h2 {
+      color: #22c55e;
+      margin-bottom: 15px;
+      font-size: 1.5rem;
+    }
+
+    .card.yellow h2 { color: #facc15; }
+    .card.purple h2 { color: #c084fc; }
+
+    .card ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 15px;
+      color: #aaa;
+    }
+
+    .card li {
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+    }
+
+    .card li i {
+      margin-right: 10px;
+      color: #22c55e;
+    }
+    .yellow li i { color: #facc15; }
+    .purple li i { color: #c084fc; }
+
+    .form-container {
+      max-width: 500px;
+      margin: 0 auto 50px;
+      background: rgba(255, 255, 255, 0.02);
+      padding: 30px;
+      border-radius: 20px;
+      border: 1px solid #333;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 10px;
+      border: 1px solid #444;
+      background: #111;
+      color: white;
+      font-family: inherit;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      background: linear-gradient(to right, #22c55e, #15803d);
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+    }
+
+    button:disabled {
+      background: #333;
+      cursor: not-allowed;
+    }
+
+    .spinner {
+      border: 3px solid rgba(255, 255, 255, 0.2);
+      border-top: 3px solid white;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      animation: spin 1s linear infinite;
+      margin: auto;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Testimonials */
+    .testimonials {
+      padding: 50px 20px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.03);
+    }
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 800px;
+      margin: 30px auto;
+    }
+    .testimonial-card {
+      background: #1f1f1f;
+      padding: 25px;
+      border-radius: 10px;
+      border-left: 4px solid #22c55e;
+      text-align: left;
+    }
+    .testimonial-card p {
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+    .testimonial-card span {
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    /* FAQ */
+    .faq-section {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+    .faq-item {
+      margin-bottom: 15px;
+    }
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      padding: 15px;
+      background: #1f1f1f;
+      border: none;
+      color: white;
+      cursor: pointer;
+      border-radius: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .faq-question i {
+      transition: transform 0.3s;
+    }
+    .faq-answer {
+      padding: 0 15px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      color: #ccc;
+    }
+    .faq-answer.active {
+      max-height: 200px;
+      padding: 15px;
+    }
+    .faq-question.active i {
+      transform: rotate(180deg);
+    }
+
+    footer {
+      text-align: center;
+      color: #666;
+      font-size: 0.9rem;
+      padding: 30px;
+      border-top: 1px solid #333;
+      margin-top: 50px;
+    }
+
+    @media (max-width: 768px) {
+      h1 a { font-size: 2.2rem; }
+      .center { padding: 60px 20px 40px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="center">
+    <h1><a href="https://spartaai.tech" target="_blank">SPARTA AI</a></h1>
+    <p>Turn Your DMs Into Cash with <span style="color: #22c55e;">AI Chatbots</span> That Sell for You 24/7</p>
+    <button class="cta-button" onclick="document.getElementById('form').scrollIntoView({behavior: 'smooth'})">
+      Get Your Free Demo
+    </button>
+  </div>
+
+  <div class="package-grid">
+    <div class="card">
+      <h2><i class="fas fa-robot"></i> Starter Bot - Ksh 3,000</h2>
+      <p>Auto FAQ replies, basic checkout, simple IG/website bot</p>
+      <ul>
+        <li><i class="fas fa-check-circle"></i> Basic automation</li>
+        <li><i class="fas fa-check-circle"></i> FAQ responses</li>
+        <li><i class="fas fa-check-circle"></i> Simple integration</li>
+      </ul>
+    </div>
+    <div class="card yellow">
+      <h2><i class="fas fa-bolt"></i> Hustler Bot - Ksh 7,000</h2>
+      <p>24/7 replies, lead capture, WhatsApp, sales follow-up</p>
+      <ul>
+        <li><i class="fas fa-check-circle"></i> Everything in Starter</li>
+        <li><i class="fas fa-check-circle"></i> WhatsApp integration</li>
+        <li><i class="fas fa-check-circle"></i> Lead capture</li>
+        <li><i class="fas fa-check-circle"></i> Sales automation</li>
+      </ul>
+    </div>
+    <div class="card purple">
+      <h2><i class="fas fa-crown"></i> Boss Bot - Ksh 15,000+</h2>
+      <p>GPT AI, custom flows, multi-platform, premium support</p>
+      <ul>
+        <li><i class="fas fa-check-circle"></i> Everything in Hustler</li>
+        <li><i class="fas fa-check-circle"></i> GPT-powered AI</li>
+        <li><i class="fas fa-check-circle"></i> Custom workflows</li>
+        <li><i class="fas fa-check-circle"></i> Premium support</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="testimonials">
+    <h2>What Our Clients Say</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <p>"Sparta AI boosted my sales by 40%! The chatbot handles inquiries even when I'm asleep."</p>
+        <span>- Jane, Nairobi</span>
+      </div>
+      <div class="testimonial-card">
+        <p>"The WhatsApp bot handles 90% of customer queries. Best investment for my business."</p>
+        <span>- Mike, Mombasa</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-section">
+    <h2 style="text-align: center;">Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <button class="faq-question">How long does setup take? <i class="fas fa-chevron-down"></i></button>
+      <div class="faq-answer">
+        <p>Most bots are ready in 1-3 business days after we receive your requirements.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">Do you offer support after setup? <i class="fas fa-chevron-down"></i></button>
+      <div class="faq-answer">
+        <p>Yes! All packages include 30 days of free support. The Boss package includes premium ongoing support.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">What payment methods do you accept? <i class="fas fa-chevron-down"></i></button>
+      <div class="faq-answer">
+        <p>We accept M-Pesa, bank transfers, and cryptocurrency payments.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-container" id="form">
+    <h2 style="text-align:center; margin-bottom:10px;">Get Your Free Demo</h2>
+    <p style="text-align:center;">We'll reach out within 24 hours</p>
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="text" id="number" placeholder="Your WhatsApp Number (e.g., 07...)" required>
+    <select id="package">
+      <option>Starter Bot</option>
+      <option>Hustler Bot</option>
+      <option>Boss Bot</option>
+    </select>
+    <textarea id="message" placeholder="Tell us about your business (optional)" rows="3"></textarea>
+    <button id="sendBtn" onclick="sendToWhatsApp()">Send to WhatsApp</button>
+    <div id="spinner" style="display:none; margin-top:10px;" class="spinner"></div>
+  </div>
+
+  <footer>
+    &copy; <span id="year"></span> Sparta AI. Built for the hustlers.
+  </footer>
+
+  <script>
+    // Set current year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // FAQ toggle functionality
+    document.querySelectorAll(".faq-question").forEach(button => {
+      button.addEventListener("click", () => {
+        const answer = button.nextElementSibling;
+        button.classList.toggle("active");
+        answer.classList.toggle("active");
+      });
+    });
+
+    // WhatsApp form submission
+    function validatePhone(number) {
+      const regex = /^(?:\+254|0)[17]\d{8}$/;
+      return regex.test(number);
+    }
+
+    async function sendToWhatsApp() {
+      const name = document.getElementById("name").value.trim();
+      let number = document.getElementById("number").value.trim();
+      const package = document.getElementById("package").value;
+      const message = document.getElementById("message").value.trim();
+      const spinner = document.getElementById("spinner");
+      const button = document.getElementById("sendBtn");
+
+      if (!name) {
+        alert("Please enter your name.");
+        return;
+      }
+
+      if (!validatePhone(number)) {
+        alert("Please enter a valid Kenyan WhatsApp number (e.g., 07XX or +2547XX).");
+        return;
+      }
+
+      // Format number to +254...
+      number = number.startsWith("+254") ? number : 
+               number.startsWith("0") ? "+254" + number.substring(1) : 
+               "+254" + number;
+
+      const text = `Hello Sparta AI,\n\nName: ${name}\nWhatsApp: ${number}\nPackage: ${package}\nMessage: ${message || "N/A"}`;
+      const url = `https://wa.me/254743942434?text=${encodeURIComponent(text)}`;
+
+      spinner.style.display = "block";
+      button.disabled = true;
+
+      setTimeout(() => {
+        window.open(url, "_blank");
+        spinner.style.display = "none";
+        button.disabled = false;
+        // Reset form
+        document.getElementById("name").value = "";
+        document.getElementById("number").value = "";
+        document.getElementById("message").value = "";
+        // Show success message
+        alert("Thank you! We've received your request and will contact you shortly.");
+      }, 1000);
+    }
+  </script>
+
+</body>
+</html>
